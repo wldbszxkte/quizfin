@@ -109,9 +109,15 @@ button { font:inherit; cursor:pointer; color:var(--ink); }
   opacity: 0.3;
   font-size: 11px;
 }
-
+#question {
+  white-space: normal !important;      /* 줄바꿈이 자연스럽게 되도록 설정 */
+  word-break: keep-all !important;      /* 단어 단위 자연스러운 줄바꿈 */
+  overflow-wrap: break-word !important; /* 모바일/좁은 화면에서도 단어가 잘리지 않게 방지 */
+  overflow: visible !important;        /* 잘린 글자가 잘 보이도록 설정 */
+  min-height: 3em;                     /* 질문 상자 최소 높이 확보 */
+}
 .lang-en #question {
-  font-size: 0.8rem; 
-  letter-spacing: -0.3px;
-  line-height: 1.4; 
+  font-size: 0.85rem !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.3px !important;
 }
