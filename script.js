@@ -161,7 +161,8 @@ function copyLink() {
 // ------------------------------------------
 function setLanguage(lang) {
   currentLang = lang;
-  
+
+  document.body.className = `lang-${lang}`;
   const koBtn = $('langKo');
   const enBtn = $('langEn');
   if (koBtn && enBtn) {
