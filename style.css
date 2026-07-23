@@ -110,14 +110,20 @@ button { font:inherit; cursor:pointer; color:var(--ink); }
   font-size: 11px;
 }
 #question {
-  white-space: normal !important;      /* 줄바꿈이 자연스럽게 되도록 설정 */
-  word-break: keep-all !important;      /* 단어 단위 자연스러운 줄바꿈 */
-  overflow-wrap: break-word !important; /* 모바일/좁은 화면에서도 단어가 잘리지 않게 방지 */
-  overflow: visible !important;        /* 잘린 글자가 잘 보이도록 설정 */
-  min-height: 3em;                     /* 질문 상자 최소 높이 확보 */
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  overflow: visible !important;
+  min-height: 3em;
 }
+
+/* 🌐 English 모드일 때 (영어 줄바꿈 속성으로 변경 + 폰트 크기 조절) */
 .lang-en #question {
   font-size: 0.85rem !important;
   line-height: 1.4 !important;
   letter-spacing: -0.3px !important;
+  
+  /* 💡 영어가 잘리지 않고 자연스럽게 다음 줄로 넘어가도록 설정 */
+  word-break: normal !important; 
+  overflow-wrap: anywhere !important;
 }
