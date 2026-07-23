@@ -109,3 +109,9 @@ button { font:inherit; cursor:pointer; color:var(--ink); }
   opacity: 0.3;
   font-size: 11px;
 }
+
+.lang-en #question {
+  font-size: 1.05rem; 
+  letter-spacing: -0.3px;
+  line-height: 1.4; 
+}
