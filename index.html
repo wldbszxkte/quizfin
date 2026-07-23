@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>나와 잘 맞는 엑소 초능력 찾기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+  <main>
+    <div class="brand">EXO PLANET · POWER MATCH</div>
+    <h1>나와 잘 맞는<br>엑소 초능력 찾기</h1>
+    <p class="subtitle">당신만의 능력을 찾아보세요</p>
+
+    <section class="card" id="intro">
+      <!-- CSS로 만든 눈: style.css의 .awaken-eye 부분이 열리는 애니메이션을 담당합니다. -->
+      <div class="awaken-eye" aria-label="깨어나는 신비로운 눈">
+        <div class="iris"><i></i></div>
+      </div>
+      <h2>당신의 능력이 깨어납니다</h2>
+      <p class="center">정답은 없어요. 가장 마음이 가는 선택지를 골라보세요.<br></p>
+      <button class="start" id="startBtn">능력 찾기 시작하기 →</button>
+    </section>
+
+    <section class="card hidden" id="quiz" aria-live="polite">
+      <div class="progress-wrap">
+        <span id="count">QUESTION 1 / 6</span>
+        <div class="progress"><i id="bar"></i></div>
+      </div>
+      <h2 class="question" id="question"></h2>
+      <div class="answers" id="answers"></div>
+    </section>
+
+    <section class="card hidden" id="result">
+      <div class="result-icon" id="resultIcon"></div>
+      <p class="tag" id="resultTag"></p>
+      <h2 class="result-name" id="resultName"></h2>
+      <div class="description" id="description"></div>
+      <div class="traits" id="traits"></div>
+      <div class="share-area">
+        <button type="button" class="btn-twitter" id="shareTwitterBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          X(트위터)에 공유하기
+        </button>
+        <button type="button" class="btn-copy" id="copyLinkBtn">
+          🔗 링크 복사
+        </button>
+      </div>
+      <button class="restart" id="restartBtn">다시 테스트하기</button>
+    </section>
+    <p class="footnote">비공식 테스트이며 결과는 참고용입니다.</p>
+    <div class="lang-selector">
+      <button type="button" id="langKo" class="lang-btn active" onclick="setLanguage('ko')">한국어</button>
+      <span class="divider">|</span>
+      <button type="button" id="langEn" class="lang-btn" onclick="setLanguage('en')">English</button>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

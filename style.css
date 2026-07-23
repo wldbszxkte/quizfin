@@ -1,0 +1,111 @@
+:root { --ink:#f5f2ff; --muted:#b9b2d0; --panel:rgba(23,17,49,.76); --line:rgba(202,185,255,.22); --violet:#9d6cff; --cyan:#58e4ff; }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; color:var(--ink); font-family:'Gowun Dodum',sans-serif; background:#1c1631; overflow-x:hidden; }
+body::before, body::after { content:''; position:fixed; z-index:-1; border-radius:50%; filter:blur(2px); opacity:.65; }
+body::before { width:480px; height:480px; top:-180px; left:-120px; background:radial-gradient(circle,#5732aa,transparent 68%); }
+body::after { width:530px; height:530px; bottom:-250px; right:-170px; background:radial-gradient(circle,#076d88,transparent 70%); }
+.stars { position:fixed; inset:0; z-index:-2; background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#bcaeff 1px,transparent 1px); background-size:53px 53px,89px 89px; background-position:3px 11px,21px 38px; opacity:.22; }
+main { width:min(720px,calc(100% - 32px)); margin:0 auto; padding:52px 0; }
+.brand { font:700 12px/1 'Orbitron',sans-serif; letter-spacing:.24em; color:var(--cyan); text-align:center; }
+h1 { margin:18px 0 10px; text-align:center; font:900 clamp(30px,7vw,54px)/1.15 'Orbitron',sans-serif; letter-spacing:-.06em; }
+.subtitle { margin:0 auto 32px; text-align:center; color:var(--muted); font-size:15px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:26px; padding:clamp(25px,6vw,48px); box-shadow:0 20px 70px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06); backdrop-filter:blur(15px); }
+.hidden { display:none !important; }
+.result-icon { font-size:78px; text-align:center; margin:4px 0 18px; filter:drop-shadow(0 0 16px currentColor); }
+/* 시작 화면의 눈 일러스트와 '눈 뜨기' 애니메이션 */
+.awaken-eye { position:relative; width:154px; height:82px; margin:4px auto 22px; overflow:hidden; clip-path:polygon(0 50%,23% 15%,50% 5%,77% 15%,100% 50%,77% 85%,50% 95%,23% 85%); background:linear-gradient(135deg,#ba9bff,#fff 49%,#7de9ff); box-shadow:0 0 12px #b988ff,0 0 32px rgba(83,225,255,.7); }
+.awaken-eye::before, .awaken-eye::after { content:''; position:absolute; z-index:2; left:-4px; width:calc(100% + 8px); height:52%; background:#171131; animation-duration:1.55s; animation-timing-function:cubic-bezier(.6,0,.18,1); animation-fill-mode:forwards; }
+.awaken-eye::before { top:-1px; transform-origin:top; animation-name:open-top-lid; }
+.awaken-eye::after { bottom:-1px; transform-origin:bottom; animation-name:open-bottom-lid; }
+.iris { position:absolute; z-index:1; top:12px; left:calc(50% - 29px); width:58px; height:58px; border:4px solid #d4b6ff; border-radius:50%; background:radial-gradient(circle at 40% 36%,#dffcff 0 7%,#8e5bff 9% 26%,#2e155d 29% 56%,#070313 59%); box-shadow:0 0 18px #9d6cff; animation:iris-appear 1.55s cubic-bezier(.2,.8,.2,1) forwards; }
+.iris i { position:absolute; top:11px; right:12px; width:8px; height:8px; border-radius:50%; background:#fff; box-shadow:0 0 8px #fff; }
+@keyframes open-top-lid { 0%,32% { transform:scaleY(1); } 100% { transform:scaleY(0); } }
+@keyframes open-bottom-lid { 0%,32% { transform:scaleY(1); } 100% { transform:scaleY(0); } }
+@keyframes iris-appear { 0%,25% { transform:scale(.15); opacity:0; } 64% { transform:scale(1.12); opacity:1; } 100% { transform:scale(1); opacity:1; } }
+@media (prefers-reduced-motion: reduce) { .awaken-eye::before, .awaken-eye::after, .iris { animation:none; } .awaken-eye::before { transform:scaleY(0); } .awaken-eye::after { transform:scaleY(0); } }
+h2 { margin:0 0 13px; text-align:center; font-size:clamp(23px,5vw,32px); }
+.center { text-align:center; color:var(--muted); line-height:1.75; }
+button { font:inherit; cursor:pointer; color:var(--ink); }
+.start, .restart { display:block; width:min(310px,100%); margin:30px auto 0; padding:16px 20px; border:0; border-radius:14px; background:linear-gradient(110deg,#7942df,#4ecde9); font-weight:bold; font-size:16px; box-shadow:0 8px 30px rgba(100,69,220,.36); transition:transform .2s,box-shadow .2s; }
+.start:hover, .restart:hover { transform:translateY(-3px); box-shadow:0 12px 34px rgba(100,69,220,.55); }
+.progress-wrap { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:27px; color:var(--muted); font-size:13px; }
+.progress { flex:1; height:7px; border-radius:9px; background:rgba(255,255,255,.1); overflow:hidden; }
+.progress > i { display:block; height:100%; width:0; border-radius:inherit; background:linear-gradient(90deg,var(--violet),var(--cyan)); transition:width .35s ease; }
+.question { font-size:clamp(22px,4.5vw,30px); line-height:1.45; margin:0 0 25px; word-break:keep-all; }
+.answers { display:grid; gap:11px; }
+.answer { width:100%; text-align:left; padding:17px 19px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.035); transition:background .18s,border-color .18s,transform .18s; }
+.answer:hover { background:rgba(130,95,226,.23); border-color:#ad8aff; transform:translateX(4px); }
+.answer span { display:inline-grid; place-items:center; width:25px; height:25px; margin-right:10px; border-radius:50%; background:rgba(255,255,255,.1); color:var(--cyan); font:700 12px 'Orbitron',sans-serif; }
+.result-name { font:900 clamp(34px,8vw,56px)/1.1 'Orbitron',sans-serif; text-align:center; margin:0 0 12px; }
+.tag { display:table; margin:0 auto 24px; border:1px solid currentColor; border-radius:99px; padding:6px 13px; font-size:13px; }
+.description { padding:20px; border-radius:16px; background:rgba(255,255,255,.06); line-height:1.8; text-align:center; word-break:keep-all; }
+.traits { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.traits span { padding:7px 11px; border-radius:99px; background:rgba(255,255,255,.09); color:var(--muted); font-size:13px; }
+.footnote { text-align:center; color:#837c9e; margin:25px 0 0; font-size:12px; }
+/* 트위터 공유 구역 및 버튼 스타일 */
+.share-area {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column; /* 모바일에서 깔끔하게 위아래 배치, 필요시 row로 변경 가능 */
+  gap: 10px;
+  align-items: center;
+}
+
+/* 공유 버튼 공통 (검은색 다크 디자인) */
+.btn-twitter, .btn-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: min(310px, 100%);
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(10, 8, 20, 0.85); /* 톤다운된 어두운 밤하늘색 */
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform .2s, background-color .2s, border-color .2s;
+}
+
+/* 마우스 올렸을 때 살짝 뜨면서 민트빛 테두리 */
+.btn-twitter:hover, .btn-copy:hover {
+  transform: translateY(-2px);
+  background: rgba(25, 20, 45, 0.95);
+  border-color: var(--cyan);
+}
+/* ==========================================
+   🌐 언어 선택 스위치 스타일 (맨 밑에 추가)
+   ========================================== */
+.lang-selector {
+  display: flex;
+  justify-content: center; /* 하단 중앙 정렬 */
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: color 0.2s, background-color 0.2s, text-shadow 0.2s;
+}
+
+.lang-btn.active, .lang-btn:hover {
+  color: var(--cyan);
+  background: rgba(88, 228, 255, 0.1);
+  text-shadow: 0 0 8px rgba(88, 228, 255, 0.6);
+}
+
+.lang-selector .divider {
+  opacity: 0.3;
+  font-size: 11px;
+}
