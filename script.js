@@ -46,7 +46,7 @@ const i18n = {
     title: "Find Your<br>EXO Power Match",
     subtitle: "Discover your unique superpower",
     introTitle: "Your Power Is Awakening",
-    introDesc: "There are no right answers. Choose what resonates with you most.",
+    introDesc: "There are no right answers. Choose what resonates with you most.A recommended song matched to your power will be provided. The song is determined by the combination of your top two powers.",
     startBtn: "Start Test →",
     restartBtn: "Test Again",
     shareTwitter: "Share on X",
@@ -83,7 +83,7 @@ const powerIcons = {
   wind: { icon: '🌀', color: '#6cef8a' },
   healing: { icon: '🌿', color: '#ffacd8' }
 };
-const songRecommendations = {
+const songRecommendationsKO = {
   water: {
     fire: { title: "Artificial Love", desc: "차가운 물의 힘 안에 뜨거운 불꽃을 숨긴 타입. 평소엔 침착하지만, 소중한 것을 지키는 순간 거센 증기와 파도를 일으킨다" },
     strength: { title: "오아시스 (Oasis)", desc: "물처럼 유연하게 흐르면서도, 거대한 파도처럼 모두를 지켜 내는 단단한 힘을 가진 타입" },
@@ -125,6 +125,50 @@ const songRecommendations = {
     strength: { title: "지나갈 테니 (Been Through)", desc: "새벽의 차가운 기운이 지난 밤의 상처를 스쳐 식혀주고, 묵직한 서늘함으로 다시 나아갈 바닥을 단단하게 받쳐준다" },
     teleport: { title: "Let Me In", desc: "도움이 필요한 곳이라면 어디든 가장 먼저 닿는 타입. 멀리 있는 사람의 마음에도 순식간에 다가가 위로를 전한다" },
     wind: { title: "Heaven", desc: "부드러운 바람처럼 곁을 감싸며 답답한 마음을 가볍게 풀어 주는 타입. 조용하지만 오래 남는 회복의 힘을 지녔다" }
+  }
+};
+const songRecommendationsEn = {
+  water: {
+    fire: { title: "Artificial Love", desc: "A type that hides burning flames inside calm water. Usually quiet, but creates fierce steam and surging waves the moment they protect what matters." },
+    strength: { title: "오아시스 (Oasis)", desc: "A type with the solid strength to flow flexibly like water while defending everyone like a massive wave." },
+    teleport: { title: "기억을 걷는 밤 (Walk On Memories)", desc: "A type with a mysterious mobility, riding the waves through space to reach wherever needed first." },
+    wind: { title: "Flatline", desc: "A type that creates a lethal silence, taking away breath like a cold wind and stilling even rough waters." },
+    healing: { title: "Sing For You", desc: "A warm type that quietly restores weary minds and bodies, just as clear water washes away wounds." }
+  },
+  fire: {
+    water: { title: "Thunder", desc: "A type that creates a storm when fiery lightning meets heavy rain. Amplifying burning passion with the flow of water, a single move triggers massive change." },
+    strength: { title: "Back it up", desc: "A type that holds out until the end like an unextinguishable flame. Blocking obstacles with raw force while leading everyone with unyielding determination." },
+    teleport: { title: "Electric Kiss", desc: "A type that vanishes and instantly appears before a target like a flash of fire. Leaves no openings with quick judgment and explosive strikes." },
+    wind: { title: "Ko Ko Bop", desc: "A type that adds free-spirited wind to burning flames. Spreading sparks like a fierce whirlwind, advancing at their own pace unbound by anything." },
+    healing: { title: "Lucky", desc: "A gentle type that melts frozen hearts with warm flames and delivers courage and good fortune to those nearby." }
+  },
+  strength: {
+    water: { title: "MAMA", desc: "A destructive force where deep, massive waves surge majestically to engulf and crush everything in an instant." },
+    fire: { title: "Power", desc: "An explosive energy that adds strong power to ablaze flames, breaking straight through any crisis." },
+    teleport: { title: "중독 (Overdose)", desc: "An intense, addictive force that teleports into openings, seizing targets with heavy power so they cannot escape." },
+    wind: { title: "Don't Fight the Feeling", desc: "An energy that dominates free rhythms with raw force, like power bursting forth on a strong wind." },
+    healing: { title: "전야 (The Eve)", desc: "A charismatic type that gently restores hearts with a heavy yet soft touch, embracing with solid strength before healing wounds." }
+  },
+  teleport: {
+    water: { title: "Groove", desc: "A type that gracefully glides through space like riding water currents. Vanishing soundlessly and reappearing naturally wherever desired." },
+    fire: { title: "Lotto", desc: "A type that emerges in unpredictable moments like fire. Possessing mobility that leaps into danger without hesitation to turn the tide." },
+    strength: { title: "Obsession", desc: "A type that precisely targets openings with power-infused teleportation. Shifting the momentum with a single move of vanishing and reappearing." },
+    wind: { title: "유성우 (Lady Luck)", desc: "A type that moves freely like cutting through the sky with the wind. Characterized by light footsteps that reach distant places in the blink of an eye." },
+    healing: { title: "Angel (너의 세상으로)", desc: "A type that instantly reaches anyone in need. Finding injured souls first to bring them to a safe place." }
+  },
+  wind: {
+    water: { title: "후폭풍 (Bad Dream)", desc: "A fatal lingering trace that wraps around coldly like waves riding strong winds, drawing you deeper the more you try to escape." },
+    fire: { title: "Crazy", desc: "Pure intensity where wild winds blow over a burning desire like fire, exploding beyond anyone's control." },
+    strength: { title: "Monster", desc: "An overwhelming, destructive force that sweeps through like a fierce typhoon, instantly overpowering and subduing opponents." },
+    teleport: { title: "Paradise", desc: "A thrilling sense of freedom that cuts through the wind to vanish into unfamiliar places, making you forget reality in an instant." },
+    healing: { title: "Cloud 9", desc: "A sweet comfort that wraps around weary hearts, seeping in like a warm breath that calms even harsh winds." }
+  },
+  healing: {
+    water: { title: "Universe", desc: "An emotional healing that gently wraps around the heart, washing away cold pain with clear, warm waves." },
+    fire: { title: "LIGHTSABER", desc: "A type that creates warm light and heat even in darkness, offering courage and hope to weary people so they can rise again." },
+    strength: { title: "지나갈 테니 (Been Through)", desc: "A heavy coolness that cools down past wounds with a chilly dawn breeze, solidly supporting the ground to move forward again." },
+    teleport: { title: "Let Me In", desc: "A type that reaches help-needing places first. Instantly drawing close to distant hearts to offer comfort." },
+    wind: { title: "Heaven", desc: "A type that gently wraps around you like a soft breeze, lightening a heavy heart. Possessing a quiet yet long-lasting power of recovery." }
   }
 };
 // ==========================================
@@ -196,23 +240,30 @@ function showResult() {
   $('description').textContent = power.desc;
   $('traits').innerHTML = power.traits.map((trait) => `<span># ${trait}</span>`).join('');
 
-// 🎧 추천곡 화면에 뿌려주기
-  const recSong = songRecommendations[mainKey][subKey];
+// 5. 🎧 현재 언어(currentLang)에 맞는 추천곡 데이터 선택
+  const songData = currentLang === 'en' ? songRecommendationsEn : songRecommendationsKo;
+  const recSong = songData[mainKey][subKey];
   const subPowerName = i18n[currentLang].powers[subKey].name;
+
+  // 6. UI 안내 문구도 언어에 맞게 분기
+  const guideTitle = currentLang === 'en'
+    ? `💡 Main [${power.name}] + Sub [${subPowerName}]`
+    : `💡 주 능력 [${power.name}] 다음으로 가까운 <b>근접 초능력: [${subPowerName}]</b>`;
+
+  const guideDesc = currentLang === 'en'
+    ? `A recommended song tailored for your unique combination of powers.`
+    : `두 성향이 함께 어우러진 당신을 위한 맞춤 추천곡입니다.`;
 
   const recArea = $('recommendArea');
   if (recArea) {
     recArea.innerHTML = `
       <div style="margin-top:14px; padding:14px 16px; background:rgba(255,255,255,0.08); border-radius:12px; text-align:left; border:1px solid rgba(255,255,255,0.15);">
-        <!-- 근접 초능력 설명 (글자 크기 UP & 선명한 색상) -->
         <p style="font-size:0.88rem; color:#e0e0e0; margin:0 0 4px 0; font-weight:500;">
-          💡 주 능력 [${power.name}] 다음으로 가까운 <b style="color:#fff; font-weight:700;">잠재 초능력: [${subPowerName}]</b>
+          ${guideTitle}
         </p>
         <p style="font-size:0.82rem; color:#b0b0b0; margin:0 0 10px 0; line-height:1.4;">
-          두 성향이 함께 어우러진 당신을 위한 맞춤 추천곡입니다.
+          ${guideDesc}
         </p>
-        
-        <!-- 추천곡 카드 -->
         <div style="padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);">
           <h4 style="font-size:1rem; color:#fff; margin:0 0 4px 0; font-weight:bold;">🎵 EXO - ${recSong.title}</h4>
           <p style="font-size:0.85rem; color:#e0e0e0; margin:0; line-height:1.4;">${recSong.desc}</p>
