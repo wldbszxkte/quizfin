@@ -214,7 +214,7 @@ function showResult() {
         
         <!-- 추천곡 카드 -->
         <div style="padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);">
-          <h4 style="font-size:1rem; color:#fff; margin:0 0 4px 0; font-weight:bold;">🎵 엑소 - ${recSong.title}</h4>
+          <h4 style="font-size:1rem; color:#fff; margin:0 0 4px 0; font-weight:bold;">🎵 EXO - ${recSong.title}</h4>
           <p style="font-size:0.85rem; color:#e0e0e0; margin:0; line-height:1.4;">${recSong.desc}</p>
         </div>
       </div>
