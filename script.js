@@ -83,7 +83,50 @@ const powerIcons = {
   wind: { icon: '🌀', color: '#6cef8a' },
   healing: { icon: '🌿', color: '#ffacd8' }
 };
-
+const songRecommendations = {
+  water: {
+    fire: { title: "Artificial Love", desc: "차가운 물의 힘 안에 뜨거운 불꽃을 숨긴 타입. 평소엔 침착하지만, 소중한 것을 지키는 순간 거센 증기와 파도를 일으킨다" },
+    strength: { title: "오아시스 (Oasis)", desc: "물처럼 유연하게 흐르면서도, 거대한 파도처럼 모두를 지켜 내는 단단한 힘을 가진 타입" },
+    teleport: { title: "기억을 걷는 밤 (Walk On Memories)", desc: "물결을 타듯 공간을 가로질러, 필요한 곳에 가장 먼저 닿는 신비로운 이동 능력을 가진 타입" },
+    wind: { title: "Flatline", desc: "차가운 바람처럼 숨을 앗아가고, 거친 물결마저 고요히 멈춰 세우는 치명적 정적을 만들어내는 타입" },
+    healing: { title: "Sing For You", desc: "맑은 물이 상처를 씻어 내듯, 지친 사람의 마음과 몸을 조용히 회복시키는 따뜻한 타입" }
+  },
+  fire: {
+    water: { title: "Thunder", desc: "불꽃 같은 번개와 거센 비가 만나 폭풍을 만드는 타입. 뜨거운 추진력을 물의 흐름으로 증폭시켜, 한 번 움직이면 거대한 변화를 일으킨다" },
+    strength: { title: "Back it up", desc: "쉽게 꺼지지 않는 불꽃처럼 끝까지 버티는 타입. 강한 힘으로 앞을 막아서는 동시에, 포기하지 않는 의지로 모두를 이끈다" },
+    teleport: { title: "Electric Kiss", desc: "불꽃이 번쩍이는 찰나처럼 시야에서 사라졌다가 목표 앞에 나타나는 타입. 빠른 판단과 폭발적인 공격으로 빈틈을 만들지 않는다" },
+    wind: { title: "Ko Ko Bop", desc: "뜨거운 불꽃에 자유로운 바람을 더한 타입. 불길을 거센 회오리처럼 퍼뜨리며, 어디에도 얽매이지 않고 자신만의 속도로 나아간다" },
+    healing: { title: "Lucky", desc: "따뜻한 불꽃으로 얼어붙은 마음을 녹이고, 곁에 있는 사람에게 용기와 행운을 전하는 다정함" }
+  },
+  strength: {
+    water: { title: "MAMA", desc: "깊고 거대한 파도가 웅장하게 밀려와 모든 것을 단숨에 잠식하고 짓눌러버리는 파괴력" },
+    fire: { title: "Power", desc: "뜨겁게 타오르는 불꽃에 강력한 힘을 더해, 어떤 위기마저 정면으로 돌파해 버리는 폭발적인 에너지" },
+    teleport: { title: "중독 (Overdose)", desc: "순간이동하듯 빈틈없이 파고들어, 묵직한 힘으로 상대를 단숨에 붙잡고 빠져나갈 수 없게 만드는 강렬한 중독성" },
+    wind: { title: "Don't Fight the Feeling", desc: "거센 바람을 타고 폭발하듯 뻗어 나가는 힘처럼, 자유로운 리듬 위를 강렬하게 장악하는 에너지" },
+    healing: { title: "전야 (The Eve)", desc: "강한 힘으로 감싸 안은 뒤 상처까지 어루만져, 묵직하면서도 부드럽게 마음을 회복시키는 카리스마" }
+  },
+  teleport: {
+    water: { title: "Groove", desc: "물결을 타듯 공간 사이를 부드럽게 넘나드는 타입. 소리 없이 사라졌다가 원하는 곳에 자연스럽게 모습을 드러낸다" },
+    fire: { title: "Lotto", desc: "불꽃처럼 예측할 수 없는 순간에 나타나는 타입. 위험한 곳에도 망설임 없이 뛰어들어 판을 뒤집는 이동 능력을 지녔다" },
+    strength: { title: "Obsession", desc: "강한 힘을 실은 순간이동으로 적의 빈틈을 정확히 파고드는 타입. 사라졌다 나타나는 한 번의 움직임만으로 전세를 바꾼다" },
+    wind: { title: "유성우 (Lady Luck)", desc: "바람과 함께 하늘을 가로지르듯 자유롭게 이동하는 타입. 눈 깜짝할 사이에 멀어진 곳까지 닿는 가벼운 발걸음이 특징이다" },
+    healing: { title: "Angel (너의 세상으로)", desc: "도움이 필요한 사람 곁이라면 어디든 즉시 닿는 타입. 상처 입은 이들에게 가장 먼저 찾아가 안전한 곳으로 데려온다" }
+  },
+  wind: {
+    water: { title: "후폭풍 (Bad Dream)", desc: "거센 바람을 타고 몰아친 물결처럼 차갑게 휘감겨, 벗어나려 할수록 더 깊이 빠져드는 치명적인 잔상" },
+    fire: { title: "Crazy", desc: "불길처럼 타오르는 치명적인 열망에 거친 바람이 몰아쳐, 아무도 막을 수 없게 폭발해 버리는 순수함" },
+    strength: { title: "Monster", desc: "모든 것을 쓸어버리는 거친 태풍처럼 몰아쳐, 상대를 단숨에 제압하고 짓눌러버리는 압도적인 파괴력" },
+    teleport: { title: "Paradise", desc: "눈 깜짝할 사이 바람을 가르며 낯선 곳으로 사라져, 현실마저 잊게 만드는 자유롭고 아찔한 해방감" },
+    healing: { title: "Cloud 9", desc: "거친 바람마저 잠재우는 따뜻한 숨결처럼 스며들어, 지친 마음을 단숨에 감싸고 되살리는 달콤한 위로" }
+  },
+  healing: {
+    water: { title: "Universe", desc: "차가운 아픔을 맑고 따뜻한 물결로 부드럽게 씻어내며 마음을 감싸주는 감성적인 치유" },
+    fire: { title: "LIGHTSABER", desc: "어둠 속에서도 따뜻한 빛과 온기를 만들어 내는 타입. 지친 사람에게 다시 일어설 용기와 희망을 건넨다" },
+    strength: { title: "지나갈 테니 (Been Through)", desc: "새벽의 차가운 기운이 지난 밤의 상처를 스쳐 식혀주고, 묵직한 서늘함으로 다시 나아갈 바닥을 단단하게 받쳐준다" },
+    teleport: { title: "Let Me In", desc: "도움이 필요한 곳이라면 어디든 가장 먼저 닿는 타입. 멀리 있는 사람의 마음에도 순식간에 다가가 위로를 전한다" },
+    wind: { title: "Heaven", desc: "부드러운 바람처럼 곁을 감싸며 답답한 마음을 가볍게 풀어 주는 타입. 조용하지만 오래 남는 회복의 힘을 지녔다" }
+  }
+};
 // ==========================================
 // 3. 주요 실행 함수
 // ==========================================
@@ -117,10 +160,18 @@ function renderQuestion() {
 }
 
 function showResult() {
-  const currentPowers = i18n[currentLang].powers;
-  const key = Object.keys(currentPowers).reduce((best, k) => scores[k] > scores[best] ? k : best, 'water');
-  const power = currentPowers[key];
-  const style = powerIcons[key];
+  // 점수가 높은 순서대로 정렬 (1위: 메인, 2위: 서브)
+  const sortedPowers = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
+  const mainKey = sortedPowers[0];
+  let subKey = sortedPowers[1];
+  
+  // 혹시 메인과 서브가 같거나 2위 점수가 없는 경우 예외 처리
+  if (!subKey || subKey === mainKey) {
+    subKey = mainKey === 'water' ? 'fire' : 'water';
+  }
+
+  const power = i18n[currentLang].powers[mainKey];
+  const style = powerIcons[mainKey];
 
   currentResultPowerName = power.name;
 
@@ -134,6 +185,31 @@ function showResult() {
   $('resultName').style.color = style.color;
   $('description').textContent = power.desc;
   $('traits').innerHTML = power.traits.map((trait) => `<span># ${trait}</span>`).join('');
+
+// 🎧 추천곡 화면에 뿌려주기
+  const recSong = songRecommendations[mainKey][subKey];
+  const subPowerName = i18n[currentLang].powers[subKey].name;
+
+  const recArea = $('recommendArea');
+  if (recArea) {
+    recArea.innerHTML = `
+      <div style="margin-top:14px; padding:14px 16px; background:rgba(255,255,255,0.08); border-radius:12px; text-align:left; border:1px solid rgba(255,255,255,0.15);">
+        <!-- 근접 초능력 설명 (글자 크기 UP & 선명한 색상) -->
+        <p style="font-size:0.88rem; color:#e0e0e0; margin:0 0 4px 0; font-weight:500;">
+          💡 주 능력 [${power.name}] 다음으로 가까운 <b style="color:#fff; font-weight:700;">잠재 초능력: [${subPowerName}]</b>
+        </p>
+        <p style="font-size:0.82rem; color:#b0b0b0; margin:0 0 10px 0; line-height:1.4;">
+          두 성향이 함께 어우러진 당신을 위한 맞춤 추천곡입니다.
+        </p>
+        
+        <!-- 추천곡 카드 -->
+        <div style="padding-top:8px; border-top:1px dashed rgba(255,255,255,0.2);">
+          <h4 style="font-size:1rem; color:#fff; margin:0 0 4px 0; font-weight:bold;">🎵 엑소 - ${recSong.title}</h4>
+          <p style="font-size:0.85rem; color:#e0e0e0; margin:0; line-height:1.4;">${recSong.desc}</p>
+        </div>
+      </div>
+    `;
+  }
 }
 
 // ------------------------------------------
