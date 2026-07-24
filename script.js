@@ -46,7 +46,7 @@ const i18n = {
     title: "Find Your<br>EXO Power Match",
     subtitle: "Discover your unique superpower",
     introTitle: "Your Power Is Awakening",
-    introDesc: "There are no right answers. Choose what resonates with you most.A recommended song matched to your power will be provided. The song is determined by the combination of your top two powers.",
+    introDesc: "There are no right answers. Choose what resonates with you most.<br>A recommended song matched to your power will be provided.<br>The song is determined by the combination of your top two powers.",
     startBtn: "Start Test →",
     restartBtn: "Test Again",
     shareTwitter: "Share on X",
