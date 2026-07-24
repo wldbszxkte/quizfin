@@ -316,7 +316,7 @@ function setLanguage(lang) {
   if (h1) h1.innerHTML = i18n[lang].title;
   if (subtitle) subtitle.textContent = i18n[lang].subtitle;
   if (introH2) introH2.textContent = i18n[lang].introTitle;
-  if (introCenter) introCenter.textContent = i18n[lang].introDesc;
+  if (introCenter) introCenter.innerHTML = i18n[lang].introDesc;
   if ($('startBtn')) $('startBtn').textContent = i18n[lang].startBtn;
   if ($('restartBtn')) $('restartBtn').textContent = i18n[lang].restartBtn;
 
