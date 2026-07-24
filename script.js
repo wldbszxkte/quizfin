@@ -83,7 +83,7 @@ const powerIcons = {
   wind: { icon: '🌀', color: '#6cef8a' },
   healing: { icon: '🌿', color: '#ffacd8' }
 };
-const songRecommendationsKO = {
+const songRecommendationsKo = {
   water: {
     fire: { title: "Artificial Love", desc: "차가운 물의 힘 안에 뜨거운 불꽃을 숨긴 타입. 평소엔 침착하지만, 소중한 것을 지키는 순간 거센 증기와 파도를 일으킨다" },
     strength: { title: "오아시스 (Oasis)", desc: "물처럼 유연하게 흐르면서도, 거대한 파도처럼 모두를 지켜 내는 단단한 힘을 가진 타입" },
