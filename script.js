@@ -163,13 +163,23 @@ function showResult() {
   // 점수가 높은 순서대로 정렬 (1위: 메인, 2위: 서브)
   const sortedPowers = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
   const mainKey = sortedPowers[0];
-  let subKey = sortedPowers[1];
   
-  // 혹시 메인과 서브가 같거나 2위 점수가 없는 경우 예외 처리
-  if (!subKey || subKey === mainKey) {
-    subKey = mainKey === 'water' ? 'fire' : 'water';
+  // 2. 메인을 제외한 나머지 초능력 후보
+  const otherPowers = sortedPowers.filter(p => p !== mainKey);
+  
+  // 3. 2위/3위 동점일 때 편향 방지 (랜덤 처리)
+  let subKey;
+  if (scores[otherPowers[0]] === scores[otherPowers[1]]) {
+    subKey = Math.random() < 0.5 ? otherPowers[0] : otherPowers[1];
+  } else {
+    subKey = otherPowers[0];
   }
 
+  // 4. 예외 안전장치
+  if (!subKey) {
+    const remaining = Object.keys(powerIcons).filter(p => p !== mainKey);
+    subKey = remaining[Math.floor(Math.random() * remaining.length)];
+  }
   const power = i18n[currentLang].powers[mainKey];
   const style = powerIcons[mainKey];
 
